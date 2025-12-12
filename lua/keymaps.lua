@@ -72,7 +72,7 @@ map({ "n", "v" }, "<leader>2", "<cmd>Neotree<CR>", { desc = "Toggle Neotree" })
 
 -- Movement --
 map({"n", "v"}, "<A-j>", "]m")
-map({"n", "v"}, "<A-k>", "[m]")
+map({"n", "v"}, "<A-k>", "[m")
 
 -- Git --
 map({ "n", "v" }, "<leader>gh", "<cmd>Gitsigns preview_hunk<CR>", { desc = "Preview hunk" })
