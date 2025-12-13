@@ -38,7 +38,7 @@ return {
 		dap.listeners.before.event_exited["dapui_config"] = dapui.close
 
 		-- Setup virtual text to show variable values inline
-		require("nvim-dap-virtual-text").setup()
+		require("nvim-dap-virtual-text").setup({})
 
 		-- JavaScript / TypeScript debugging (vscode-js-debug)
 		local mason_path = vim.fn.stdpath("data") .. "/mason/packages/js-debug-adapter"

@@ -1,64 +1,71 @@
 local o = vim.o
 local g = vim.g
+local op = vim.opt
 
-o.clipboard = "unnamedplus"   -- Use system clipboard as default register.
+o.clipboard = "unnamedplus" -- Use system clipboard as default register.
 
-o.swapfile = false            -- Disable swap file creation.
-o.undofile = true             -- Enable persistent undo.
+o.swapfile = false -- Disable swap file creation.
+o.undofile = true -- Enable persistent undo.
 
-o.ignorecase = true           -- Ignore case when searching.
-o.smartcase = true            -- Use case-sensitive search if any uppercase characters are used.
+o.ignorecase = true -- Ignore case when searching.
+o.smartcase = true -- Use case-sensitive search if any uppercase characters are used.
 
-o.laststatus = 3              -- Global statusline
+o.laststatus = 3 -- Global statusline
 
-o.smartindent = true          -- Automatically adjust indentation based on syntax.
-o.expandtab = true            -- Use spaces instead of tabs for indentation.
-o.shiftwidth = 2              -- Number of spaces for each indentation level.
-o.tabstop = 2                 -- Number of spaces a tab character represents.
-o.softtabstop = 2             -- Number of spaces inserted for <Tab> in insert mode.
+o.smartindent = true -- Automatically adjust indentation based on syntax.
+o.expandtab = true -- Use spaces instead of tabs for indentation.
+o.shiftwidth = 2 -- Number of spaces for each indentation level.
+o.tabstop = 2 -- Number of spaces a tab character represents.
+o.softtabstop = 2 -- Number of spaces inserted for <Tab> in insert mode.
 
-o.winborder = "rounded"       -- Sets the border of floating windows.
+o.winborder = "rounded" -- Sets the border of floating windows.
 
-o.number = true               -- Show absolute line numbers.
-o.relativenumber = false      -- Show relative line numbers.
-o.signcolumn = "yes"          -- Show sign column.
-o.cursorline = true           -- Show horizontal cursor line.
-o.cursorcolumn = false        -- Show vertical cursor column.
-o.wrap = false                -- Word wrap.
+o.number = true -- Show absolute line numbers.
+o.relativenumber = false -- Show relative line numbers.
+o.signcolumn = "yes" -- Show sign column.
+o.cursorline = true -- Show horizontal cursor line.
+o.cursorcolumn = false -- Show vertical cursor column.
+o.wrap = false -- Word wrap.
 
 -- o.timeoutlen = 500;           -- Wait delay for key combinations.
 
 -- o.mouse = "a"                 -- Enable mouse support in all modes.
 
-o.equalalways = false         -- Don't resize splits automatically.
-o.splitright = true           -- Split vertical window to the right.
-o.splitbelow = true           -- Split horizontal window to the bottom.
+o.equalalways = false -- Don't resize splits automatically.
+o.splitright = true -- Split vertical window to the right.
+o.splitbelow = true -- Split horizontal window to the bottom.
 
-o.foldmethod = "indent";      -- Stuff that enables folding.
-o.foldlevel = 999;            -- Stuff that enables folding.
+o.foldmethod = "indent" -- Stuff that enables folding.
+o.foldlevel = 999 -- Stuff that enables folding.
 
-o.list = false                -- Show hidden characters.
-o.fillchars = "eob: "         -- End of buffer (default ~) characters.
+o.list = false -- Show hidden characters.
+o.fillchars = "eob: " -- End of buffer (default ~) characters.
 
-o.termguicolors = true        -- Enable 24-bit RGB colors.
-o.hlsearch = false
+o.termguicolors = true -- Enable 24-bit RGB colors.
+o.hlsearch = false -- Disable /pattern search highlighting.
+
+o.list = true
+o.scrolloff = 2 -- Cursorline can't be 2 lines from the edge.
+o.confirm = true -- Ask to confirmation instead of an error.
+
+op.listchars = { tab = "  ", trail = "·", nbsp = "␣" }
 
 vim.opt.shortmess:append("I") -- Disable welcome message.
 
 vim.opt.iskeyword:remove("_") -- Treat "_" as a symbol.
 
-vim.opt.fillchars:append({    -- Remove fold fillchars
-  fold = " "
+vim.opt.fillchars:append({ -- Remove fold fillchars
+	fold = " ",
 })
 
-vim.opt.showmode = false      -- Display -- MODE -- message
+vim.opt.showmode = false -- Display -- MODE -- message
 
 vim.diagnostic.config({
-  virtual_text = false,       -- Inline text
-  signs = true,               -- Sign column
-  underline = true,           -- Underlines
-  update_in_insert = false,   -- Updates in insert mode
-  severity_sort = true,       -- Sort by severity
+	virtual_text = false, -- Inline text
+	signs = true, -- Sign column
+	underline = true, -- Underlines
+	update_in_insert = false, -- Updates in insert mode
+	severity_sort = true, -- Sort by severity
 })
 
 g.loaded_node_provider = 0

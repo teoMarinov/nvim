@@ -31,7 +31,7 @@ autocmd("BufEnter", {
   desc = "Open image files with imv",
 })
 
-vim.api.nvim_create_autocmd("VimEnter", {
+autocmd("VimEnter", {
   callback = function()
     local argv = vim.fn.argv()
 
@@ -46,4 +46,23 @@ vim.api.nvim_create_autocmd("VimEnter", {
       pcall(vim.cmd, "bd")
     end
   end,
+})
+
+autocmd("LspAttach", {
+  group = augroup('kickstart-lsp-attach', { clear = true }),
+
+  callback = function(event)
+    local map = function(keys, func, desc)
+      vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
+    end
+
+    -- Kickstart standard keymaps
+    map('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
+    map('grn', vim.lsp.buf.rename, '[R]e[n]ame')
+    map('gca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+    map('K', vim.lsp.buf.hover, 'Hover Documentation')
+
+    -- Rounded borders for hover windows
+    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+  end
 })

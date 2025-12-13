@@ -1,32 +1,55 @@
 return {
-	{
-		"nvim-telescope/telescope.nvim",
+  {
+    "nvim-telescope/telescope.nvim",
 
-		dependencies = { "nvim-lua/plenary.nvim" },
+    event = "VimEnter",
 
-		config = function()
-			local telescope = require("telescope")
-			telescope.setup({
-				defaults = {},
-			})
+    dependencies = {
+      "nvim-lua/plenary.nvim",
 
-			require("telescope.builtin")
-		end,
-	},
+      {
+        'nvim-telescope/telescope-fzf-native.nvim',
 
-	{
-		"nvim-telescope/telescope-ui-select.nvim",
+        build = 'make',
 
-		config = function()
-			require("telescope").setup({
-				extensions = {
-					["ui-select"] = {
-						require("telescope.themes").get_dropdown({}),
-					},
-				},
-			})
+        cond = function()
+          return vim.fn.executable 'make' == 1
+        end,
+      },
+      {
+        "nvim-telescope/telescope-ui-select.nvim",
 
-			require("telescope").load_extension("ui-select")
-		end,
-	},
+        config = function()
+          require("telescope").setup({
+            extensions = {
+              ["ui-select"] = {
+                require("telescope.themes").get_dropdown({}),
+              },
+            },
+          })
+
+          require("telescope").load_extension("ui-select")
+        end,
+      },
+
+
+      { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+    },
+
+    config = function()
+      require('telescope').setup({
+        defaults = {},
+        extensions = {
+          ['ui-select'] = {
+            require('telescope.themes').get_dropdown(),
+          }
+        }
+      })
+
+      require("telescope.builtin")
+      pcall(require("telescope").load_extension, 'fzf')
+      pcall(require("telescope").load_extension, 'ui-select')
+    end,
+  },
+
 }
