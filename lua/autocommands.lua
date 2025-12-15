@@ -71,7 +71,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		-- search symbol
 		map("<leader>dS", "<cmd>Telescope lsp_document_symbols<CR>", "Open Document Symbols")
 		-- hover
-		map("K", vim.lsp.buf.hover, "Hover Documentation")
+		map("K", function()
+			endvim.lsp.buf.hover()
+		end, "Hover Documentation")
 
 		local function client_supports_method(client, method, bufnr)
 			if vim.fn.has("nvim-0.11") == 1 then
@@ -110,7 +112,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end
 
 		if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
-			map("<leader>dh", function()
+			map("<leader>th", function()
 				vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
 			end, "Toggle Hints")
 		end
