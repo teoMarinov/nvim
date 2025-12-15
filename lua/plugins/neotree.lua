@@ -1,4 +1,6 @@
--- if true then return {} end
+if true then
+	return {}
+end
 return {
 	{
 		"nvim-neo-tree/neo-tree.nvim",
@@ -12,6 +14,11 @@ return {
 		},
 
 		lazy = false, -- neo-tree will load immediately
+
+		keys = {
+			{ { "n", "v" }, "<leader>1", "<cmd>Neotree close<CR>", { desc = "Toggle Neotree" } },
+			{ { "n", "v" }, "<leader>2", "<cmd>Neotree<CR>", { desc = "Toggle Neotree" } },
+		},
 
 		config = function()
 			require("neo-tree").setup({
