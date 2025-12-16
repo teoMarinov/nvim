@@ -41,6 +41,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end
 
 		-- type definition
+		map("<leader>dt", "<cmd>Telescope lsp_type_definitions<CR>", "Type Definition")
+		-- definition
 		map("<leader>dq", "<cmd>Telescope lsp_definitions<CR>", "Definition")
 		-- reference
 		map("<leader>ds", "<cmd>Telescope lsp_references<CR>", "References")
@@ -55,7 +57,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			vim.lsp.buf.rename()
 		end, "Rename")
 		-- diagnostics
-		map("<leader>df", "<cmd>Telescope diagnostics<CR>", "Diagnostics All")
+		map("<leader>df", function()
+			require("telescope.builtin").diagnostics({ bufnr = 0 })
+		end, "Diagnostics All")
 		-- diagnostic
 		map("<leader>dd", function()
 			vim.diagnostic.open_float()
