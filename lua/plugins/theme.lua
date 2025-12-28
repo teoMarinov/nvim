@@ -8,8 +8,6 @@ return {
 
 		config = function()
 			require("bamboo").setup({})
-
-			require("bamboo").load()
 		end,
 	},
 
@@ -39,7 +37,13 @@ return {
 		end,
 	},
 
-	config = function()
-		vim.cmd.colorscheme("bamboo")
-	end,
+	{
+		"AlexvZyl/nordic.nvim",
+		lazy = false,
+		priority = 1000,
+
+		config = function()
+			require("nordic").setup({})
+		end,
+	},
 }

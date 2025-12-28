@@ -21,7 +21,7 @@ o.softtabstop = 2 -- Number of spaces inserted for <Tab> in insert mode.
 o.winborder = "rounded" -- Sets the border of floating windows.
 
 o.number = true -- Show absolute line numbers.
-o.relativenumber = false -- Show relative line numbers.
+o.relativenumber = true -- Show relative line numbers.
 o.signcolumn = "yes" -- Show sign column.
 o.cursorline = true -- Show horizontal cursor line.
 o.cursorcolumn = false -- Show vertical cursor column.

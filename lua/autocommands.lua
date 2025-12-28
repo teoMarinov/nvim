@@ -76,7 +76,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map("<leader>dS", "<cmd>Telescope lsp_document_symbols<CR>", "Open Document Symbols")
 		-- hover
 		map("K", function()
-			endvim.lsp.buf.hover()
+			vim.lsp.buf.hover()
 		end, "Hover Documentation")
 
 		local function client_supports_method(client, method, bufnr)

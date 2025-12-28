@@ -28,6 +28,7 @@ return {
 
 			options = {
 				globalstatus = true,
+				theme = "nordic",
 			},
 		})
 	end,

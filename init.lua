@@ -20,6 +20,7 @@ vim.g.maplocalleader = " "
 require("lazy").setup({
 	{ import = "plugins" },
 })
+vim.cmd.colorscheme("bamboo")
 
 require("keymaps")
 require("settings")
