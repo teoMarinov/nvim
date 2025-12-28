@@ -79,6 +79,8 @@ return {
 				},
 
 				lua_ls = {},
+				basedpyright = {},
+				ruff = {},
 			}
 
 			local ensure_installed = vim.tbl_keys(servers or {})
@@ -86,6 +88,7 @@ return {
 				"stylua",
 				"prettier",
 				"eslint",
+				"ruff",
 			})
 
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
@@ -101,6 +104,35 @@ return {
 				},
 			})
 		end,
+	},
+
+	{
+		"neovim/nvim-lspconfig",
+		dependencies = {
+			{ "williamboman/mason.nvim", config = true },
+			"williamboman/mason-lspconfig.nvim",
+			"WhoIsSethDaniel/mason-tool-installer.nvim",
+			{ "j-hui/fidget.nvim", opts = {} },
+
+			{
+				"L3MON4D3/LuaSnip",
+				version = "v2.*",
+				build = "make install_jsregexp",
+				dependencies = { "rafamadriz/friendly-snippets" },
+				config = function()
+					require("luasnip.loaders.from_vscode").lazy_load()
+
+					local ls = require("luasnip")
+					ls.add_snippets("python", {
+						ls.snippet("ds", {
+							ls.text_node('"""'),
+							ls.insert_node(1, "Description"),
+							ls.text_node('"""'),
+						}),
+					})
+				end,
+			},
+		},
 	},
 
 	{
@@ -123,6 +155,8 @@ return {
 				use_nvim_cmp_as_default = true,
 				nerd_font_variant = "mono",
 			},
+
+			snippets = { preset = "luasnip" },
 
 			sources = {
 				default = { "lsp", "path", "snippets", "buffer" },
