@@ -1,3 +1,6 @@
+if true then
+	return {}
+end
 return {
 	"tribela/transparent.nvim",
 	config = function()

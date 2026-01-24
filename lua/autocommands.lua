@@ -125,3 +125,28 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
 	end,
 })
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+	callback = function()
+		local new_color = vim.g.colors_name
+		local init_path = vim.fn.stdpath("config") .. "/init.lua"
+
+		local file = io.open(init_path, "r")
+		if not file then
+			return
+		end
+		local content = file:read("*all")
+		file:close()
+
+		local pattern = 'vim%.cmd%.colorscheme%(".-"%)'
+		local replacement = 'vim.cmd.colorscheme("' .. new_color .. '")'
+		local new_content = content:gsub(pattern, replacement)
+
+		file = io.open(init_path, "w")
+		if file then
+			file:write(new_content)
+			file:close()
+			vim.notify("init.lua updated with colorscheme: " .. new_color, vim.log.levels.INFO)
+		end
+	end,
+})

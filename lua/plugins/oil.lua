@@ -15,6 +15,11 @@ return {
 				"icon",
 			},
 
+			keymaps = {
+				["<C-h>"] = false,
+				["<C-l>"] = false,
+			},
+
 			win_options = {
 				signcolumn = "yes",
 			},

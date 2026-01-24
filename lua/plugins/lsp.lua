@@ -79,15 +79,18 @@ return {
 				},
 
 				lua_ls = {},
+
 				basedpyright = {},
 				ruff = {},
 			}
 
 			local ensure_installed = vim.tbl_keys(servers or {})
 			vim.list_extend(ensure_installed, {
-				"stylua",
-				"prettier",
 				"eslint",
+				"prettier",
+
+				"stylua",
+
 				"ruff",
 			})
 
