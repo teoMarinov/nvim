@@ -149,6 +149,8 @@ return {
 				["<CR>"] = { "accept", "fallback" },
 				["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
 				["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
+				["<Down>"] = { "select_next", "snippet_forward", "fallback" },
+				["<Up>"] = { "select_prev", "snippet_forward", "fallback" },
 
 				["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
 				["<C-e>"] = { "hide" },

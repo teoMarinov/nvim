@@ -1,9 +1,5 @@
 local map = vim.keymap.set
 
--- Previous --
-map("n", "<C-o>", "<C-i>", { noremap = true, silent = true })
-map("n", "<C-i>", "<C-o>", { noremap = true, silent = true })
-
 -- Terminal --
 map({ "n", "v" }, "<leader>T", "<cmd>terminal<CR>", { desc = "Terminal" })
 map("t", "<C-Space>", "<C-\\><C-n>", { desc = "Terminal Unselect" })

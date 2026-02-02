@@ -4,42 +4,45 @@ return {
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 
 	config = function()
-		local colors = {
-			blue = "#80a0ff",
-			cyan = "#79dac8",
-			black = "#080808",
-			white = "#c6c6c6",
-			red = "#ff5189",
-			light = "#8ca1bf",
-			grey = "#303030",
-		}
+		-- local colors = {
+		-- 	blue = "#80a0ff",
+		-- 	cyan = "#79dac8",
+		-- 	black = "#080808",
+		-- 	white = "#c6c6c6",
+		-- 	red = "#ff5189",
+		-- 	light = "#8ca1bf",
+		-- 	grey = "#303030",
+		-- }
 
 		require("lualine").setup({
 			options = {
 				component_separators = "",
 				section_separators = { left = "", right = "" },
-				theme = {
-					normal = {
-						a = { fg = colors.black, bg = colors.light },
-						b = { fg = colors.white, bg = colors.grey },
-						c = { fg = colors.white },
-					},
-
-					insert = { a = { fg = colors.black, bg = colors.blue } },
-					visual = { a = { fg = colors.black, bg = colors.cyan } },
-					replace = { a = { fg = colors.black, bg = colors.red } },
-
-					inactive = {
-						a = { fg = colors.white, bg = colors.black },
-						b = { fg = colors.white, bg = colors.black },
-						c = { fg = colors.white },
-					},
-				},
+				-- theme = {
+				-- 	normal = {
+				-- 		a = { fg = colors.black, bg = colors.light },
+				-- 		b = { fg = colors.white, bg = colors.grey },
+				-- 		c = { fg = colors.white },
+				-- 	},
+				--
+				-- 	insert = { a = { fg = colors.black, bg = colors.blue } },
+				-- 	visual = { a = { fg = colors.black, bg = colors.cyan } },
+				-- 	replace = { a = { fg = colors.black, bg = colors.red } },
+				--
+				-- 	inactive = {
+				-- 		a = { fg = colors.white, bg = colors.black },
+				-- 		b = { fg = colors.white, bg = colors.black },
+				-- 		c = { fg = colors.white },
+				-- 	},
+				-- },
 			},
 
 			sections = {
 				lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },
-				lualine_b = { "filename", "branch" },
+				lualine_b = { {
+					"filename",
+					path = 1,
+				}, "branch" },
 				lualine_c = {
 					"%=", --[[ add your center components here in place of this comment ]]
 				},

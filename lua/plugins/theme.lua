@@ -3,25 +3,29 @@ return {
 		"ribru17/bamboo.nvim",
 
 		lazy = false,
-
 		priority = 1000,
-
 		config = function()
-			require("bamboo").setup({})
-		end,
-	},
+			require("bamboo").setup({
+				transparent = true,
+				lualine = {
+					transparent = true,
+				},
 
-	{
-		"folke/tokyonight.nvim",
+				colors = {
+					bg0 = "#131313",
+				},
 
-		lazy = false,
-
-		priority = 1000,
-
-		opts = {},
-
-		config = function()
-			require("tokyonight")
+				code_style = {
+					comments = { italic = true, bold = false },
+					conditionals = { italic = false, bold = false },
+					keywords = { bold = false },
+					functions = { bold = false },
+					namespaces = { italic = false, bold = false },
+					parameters = { italic = false, bold = false },
+					strings = { bold = false },
+					variables = { bold = false },
+				},
+			})
 		end,
 	},
 
@@ -33,17 +37,14 @@ return {
 		priority = 1000,
 
 		config = function()
-			require("catppuccin").setup()
-		end,
-	},
-
-	{
-		"AlexvZyl/nordic.nvim",
-		lazy = false,
-		priority = 1000,
-
-		config = function()
-			require("nordic").setup({})
+			require("catppuccin").setup({
+				transparent_background = true,
+				float = {
+					transparent = true,
+				},
+				no_italic = true,
+				no_bold = true,
+			})
 		end,
 	},
 }
