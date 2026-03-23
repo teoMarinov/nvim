@@ -1,49 +1,55 @@
 return {
-	{
-		"ribru17/bamboo.nvim",
+  {
+    "ribru17/bamboo.nvim",
 
-		lazy = false,
+    lazy = false,
 
-		priority = 1000,
+    priority = 1000,
 
-		config = function()
-			require("bamboo").setup({})
-		end,
-	},
+    config = function()
+      require("bamboo").setup({})
+    end,
+  },
 
-	{
-		"folke/tokyonight.nvim",
+  {
+    "folke/tokyonight.nvim",
 
-		lazy = false,
+    lazy = false,
 
-		priority = 1000,
+    priority = 1000,
 
-		opts = {},
+    opts = {},
 
-		config = function()
-			require("tokyonight")
-		end,
-	},
+    config = function()
+      require("tokyonight")
+    end,
+  },
 
-	{
-		"catppuccin/nvim",
+  {
+    "catppuccin/nvim",
 
-		name = "catppuccin",
+    name = "catppuccin",
 
-		priority = 1000,
+    priority = 1000,
 
-		config = function()
-			require("catppuccin").setup()
-		end,
-	},
+    config = function()
+      require("catppuccin").setup({
+        color_overrides = {
+          all = {
+            base = '#1a1b26',
+          }
+        }
+      })
+    end,
+  },
 
-	{
-		"AlexvZyl/nordic.nvim",
-		lazy = false,
-		priority = 1000,
+  {
+    "AlexvZyl/nordic.nvim",
+    lazy = false,
+    priority = 1000,
 
-		config = function()
-			require("nordic").setup({})
-		end,
-	},
+    config = function()
+      require("nordic").setup({})
+    end,
+  },
 }
