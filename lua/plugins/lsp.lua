@@ -82,6 +82,27 @@ return {
 
 				basedpyright = {},
 				ruff = {},
+
+				gopls = {
+					settings = {
+						gopls = {
+							analyses = {
+								unusedparams = true,
+								shadow = true, -- Check for variable shadowing
+							},
+							staticcheck = true, -- Enables much more thorough linting
+							gofumpt = true, -- Use a stricter version of gofmt
+							completeUnimported = true,
+							usePlaceholders = true,
+							hints = {
+								assignVariableTypes = true,
+								compositeLiteralFields = true,
+								constantValues = true,
+								parameterNames = true,
+							},
+						},
+					},
+				},
 			}
 
 			local ensure_installed = vim.tbl_keys(servers or {})
@@ -92,6 +113,9 @@ return {
 				"stylua",
 
 				"ruff",
+
+				"goimports",
+				"delve",
 			})
 
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })

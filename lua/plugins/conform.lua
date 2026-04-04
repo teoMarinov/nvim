@@ -34,6 +34,7 @@ return { -- Autoformat
 			yaml = { "prettier" },
 			markdown = { "prettier" },
 			python = { "ruff_format" },
+			go = { "goimports", "gofumpt" },
 		},
 	},
 }
