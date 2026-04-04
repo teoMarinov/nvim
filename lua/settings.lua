@@ -50,15 +50,17 @@ o.confirm = true -- Ask to confirmation instead of an error.
 
 op.listchars = { tab = "  ", trail = "·", nbsp = "␣" }
 
-vim.opt.shortmess:append("I") -- Disable welcome message.
+op.shortmess:append("I") -- Disable welcome message.
 
-vim.opt.iskeyword:remove("_") -- Treat "_" as a symbol.
+op.iskeyword:remove("_") -- Treat "_" as a symbol.
 
-vim.opt.fillchars:append({ -- Remove fold fillchars
+op.fillchars:append({ -- Remove fold fillchars
 	fold = " ",
 })
 
-vim.opt.showmode = false -- Display -- MODE -- message
+op.showmode = false -- Display -- MODE -- message
+
+op.termguicolors = true
 
 vim.diagnostic.config({
 	virtual_text = false, -- Inline text
