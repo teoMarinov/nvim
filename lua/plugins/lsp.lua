@@ -79,9 +79,6 @@ return {
 				},
 
 				lua_ls = {},
-
-				basedpyright = {},
-				ruff = {},
 			}
 
 			local ensure_installed = vim.tbl_keys(servers or {})
@@ -89,9 +86,7 @@ return {
 				"eslint",
 				"prettier",
 
-				"stylua",
-
-				"ruff",
+				"stylua", -- lua
 			})
 
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
