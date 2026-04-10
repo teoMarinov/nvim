@@ -38,9 +38,14 @@ return {
 
 		config = function()
 			require("catppuccin").setup({
-				transparent_background = true,
+				transparent_background = false,
 				float = {
 					transparent = true,
+				},
+				color_overrides = {
+					all = {
+						base = "#1a1b26",
+					},
 				},
 				no_italic = true,
 				no_bold = true,
