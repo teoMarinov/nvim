@@ -59,19 +59,3 @@ return {
 		},
 	},
 }
--- return { "lewis6991/gitsigns.nvim",
---
---   opts = {
---     signs = {
---       add = { text = 'A' },
---       change = { text = 'C' },
---       delete = { text = 'D' },
---       topdelete = { text = 'D' },
---       changedelete = { text = 'C' },
---     }
---   },
---
---   config = function()
---     require("gitsigns").setup()
---   end,
--- }

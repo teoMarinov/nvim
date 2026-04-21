@@ -42,7 +42,7 @@ return {
 				lualine_b = { {
 					"filename",
 					path = 1,
-				}, "branch" },
+				} },
 				lualine_c = {
 					"%=", --[[ add your center components here in place of this comment ]]
 				},

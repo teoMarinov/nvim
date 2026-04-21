@@ -80,9 +80,6 @@ return {
 
 				lua_ls = {},
 
-				basedpyright = {},
-				ruff = {},
-
 				gopls = {
 					settings = {
 						gopls = {
@@ -111,8 +108,6 @@ return {
 				"prettier",
 
 				"stylua",
-
-				"ruff",
 
 				"goimports",
 				"delve",

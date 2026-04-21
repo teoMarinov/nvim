@@ -1,5 +1,5 @@
 require("keymaps.common")
-require("keymaps.debugger")
+require("keymaps.git")
 require("keymaps.splits")
 require("keymaps.telescope")
 require("keymaps.workspace")

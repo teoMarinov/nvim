@@ -28,7 +28,7 @@ require("vim-options")
 require("lazy").setup({
 	{ import = "plugins" },
 })
-vim.cmd.colorscheme("catppuccin-macchiato")
+vim.cmd.colorscheme("bamboo")
 
 require("keymaps")
 require("autocommands")

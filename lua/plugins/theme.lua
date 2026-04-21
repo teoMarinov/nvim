@@ -12,7 +12,7 @@ return {
 				},
 
 				colors = {
-					bg0 = "#131313",
+					bg0 = "#111111",
 				},
 
 				code_style = {
@@ -44,7 +44,8 @@ return {
 				},
 				color_overrides = {
 					all = {
-						base = "#1a1b26",
+						base = "#111111",
+						-- base = "#1a1b26",
 					},
 				},
 				no_italic = true,
