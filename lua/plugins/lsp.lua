@@ -100,6 +100,8 @@ return {
 						},
 					},
 				},
+
+				codebook = {},
 			}
 
 			local ensure_installed = vim.tbl_keys(servers or {})
@@ -145,6 +147,12 @@ return {
 					require("luasnip.loaders.from_vscode").lazy_load()
 
 					local ls = require("luasnip")
+
+					ls.config.setup({
+						region_check_events = "InsertEnter",
+						delete_check_events = "TextChanged,InsertLeave",
+					})
+
 					ls.add_snippets("python", {
 						ls.snippet("ds", {
 							ls.text_node('"""'),
