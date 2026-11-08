@@ -1,17 +1,5 @@
 return {
 	{
-		"folke/lazydev.nvim",
-
-		ft = "lua",
-
-		opts = {
-			library = {
-				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
-			},
-		},
-	},
-
-	{
 		"neovim/nvim-lspconfig",
 
 		dependencies = {
@@ -78,29 +66,6 @@ return {
 					end,
 				},
 
-				lua_ls = {},
-
-				gopls = {
-					settings = {
-						gopls = {
-							analyses = {
-								unusedparams = true,
-								shadow = true, -- Check for variable shadowing
-							},
-							staticcheck = true, -- Enables much more thorough linting
-							gofumpt = true, -- Use a stricter version of gofmt
-							completeUnimported = true,
-							usePlaceholders = true,
-							hints = {
-								assignVariableTypes = true,
-								compositeLiteralFields = true,
-								constantValues = true,
-								parameterNames = true,
-							},
-						},
-					},
-				},
-
 				codebook = {},
 			}
 
@@ -108,11 +73,6 @@ return {
 			vim.list_extend(ensure_installed, {
 				"eslint",
 				"prettier",
-
-				"stylua",
-
-				"goimports",
-				"delve",
 			})
 
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
@@ -151,14 +111,6 @@ return {
 					ls.config.setup({
 						region_check_events = "InsertEnter",
 						delete_check_events = "TextChanged,InsertLeave",
-					})
-
-					ls.add_snippets("python", {
-						ls.snippet("ds", {
-							ls.text_node('"""'),
-							ls.insert_node(1, "Description"),
-							ls.text_node('"""'),
-						}),
 					})
 				end,
 			},

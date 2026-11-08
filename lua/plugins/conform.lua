@@ -22,18 +22,15 @@ return { -- Autoformat
 		end,
 
 		formatters_by_ft = {
-			lua = { "stylua" },
 			javascript = { "prettier" },
 			typescript = { "prettier" },
 			javascriptreact = { "prettier" }, -- .jsx
 			typescriptreact = { "prettier" }, -- .tsx
-			svelte = { "prettier" },
 			css = { "prettier" },
 			html = { "prettier" },
 			json = { "prettier" },
 			yaml = { "prettier" },
 			markdown = { "prettier" },
-			go = { "goimports", "gofumpt" },
 		},
 	},
 }

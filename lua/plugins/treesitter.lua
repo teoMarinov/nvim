@@ -1,5 +1,4 @@
 local parsers = {
-	"lua",
 	"html",
 	"css",
 	"javascript",
@@ -9,14 +8,11 @@ local parsers = {
 	"json",
 	"csv",
 	"yaml",
-	"go",
-	"python",
 	"markdown",
 	"markdown_inline",
 }
 
 local filetypes = {
-	"lua",
 	"html",
 	"css",
 	"javascript",
@@ -25,8 +21,6 @@ local filetypes = {
 	"json",
 	"csv",
 	"yaml",
-	"go",
-	"python",
 	"markdown",
 }
 
