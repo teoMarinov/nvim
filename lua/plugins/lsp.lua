@@ -79,6 +79,29 @@ return {
 				},
 
 				lua_ls = {},
+
+				gopls = {
+					settings = {
+						gopls = {
+							analyses = {
+								unusedparams = true,
+								shadow = true, -- Check for variable shadowing
+							},
+							staticcheck = true, -- Enables much more thorough linting
+							gofumpt = true, -- Use a stricter version of gofmt
+							completeUnimported = true,
+							usePlaceholders = true,
+							hints = {
+								assignVariableTypes = true,
+								compositeLiteralFields = true,
+								constantValues = true,
+								parameterNames = true,
+							},
+						},
+					},
+				},
+
+				codebook = {},
 			}
 
 			local ensure_installed = vim.tbl_keys(servers or {})
@@ -86,7 +109,10 @@ return {
 				"eslint",
 				"prettier",
 
-				"stylua", -- lua
+				"stylua",
+
+				"goimports",
+				"delve",
 			})
 
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
@@ -121,6 +147,12 @@ return {
 					require("luasnip.loaders.from_vscode").lazy_load()
 
 					local ls = require("luasnip")
+
+					ls.config.setup({
+						region_check_events = "InsertEnter",
+						delete_check_events = "TextChanged,InsertLeave",
+					})
+
 					ls.add_snippets("python", {
 						ls.snippet("ds", {
 							ls.text_node('"""'),
@@ -144,6 +176,8 @@ return {
 				["<CR>"] = { "accept", "fallback" },
 				["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
 				["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
+				["<Down>"] = { "select_next", "snippet_forward", "fallback" },
+				["<Up>"] = { "select_prev", "snippet_forward", "fallback" },
 
 				["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
 				["<C-e>"] = { "hide" },

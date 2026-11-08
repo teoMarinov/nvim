@@ -33,6 +33,7 @@ return { -- Autoformat
 			json = { "prettier" },
 			yaml = { "prettier" },
 			markdown = { "prettier" },
+			go = { "goimports", "gofumpt" },
 		},
 	},
 }
